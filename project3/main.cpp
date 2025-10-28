@@ -227,6 +227,36 @@ void update()
     }
 }
 
+void DrawFuelUI()
+{
+    const float pad = 12.0f;
+    const float w   = 240.0f;
+    const float h   = 18.0f;
+
+    DrawText("FUEL", (int)pad, (int)pad, 20, RAYWHITE);
+
+    Rectangle box = { pad, pad + 24.0f, w, h };
+    DrawRectangleLinesEx(box, 2.0f, RAYWHITE);
+
+    float pct = gfuel / fuel;               
+    if (pct < 0.0f) pct = 0.0f;
+    if (pct > 1.0f) pct = 1.0f;
+
+    // Color shifts as fuel gets low
+    Color fill = GREEN;
+    if (pct < 0.33f) fill = ORANGE;
+    if (pct < 0.10f) fill = RED;
+
+    int fx = (int)(box.x + 2);
+    int fy = (int)(box.y + 2);
+    int fw = (int)((w - 4) * pct);
+    int fh = (int)(h - 4);
+    DrawRectangle(fx, fy, fw, fh, fill);
+    char buf[32];
+    snprintf(buf, sizeof(buf), "%d%%", (int)(pct * 100.0f));
+    DrawText(buf, (int)(box.x + w + 10), (int)box.y - 2, 18, RAYWHITE);
+}
+
 
 void render()
 {
@@ -257,6 +287,8 @@ void render()
         int text = MeasureText(msg, font_size);
         DrawText(msg, (SCREEN_WIDTH - text)/2, (int)(ORIGIN.y - 40), font_size, RED);
     }
+    DrawFuelUI();
+
     EndDrawing();
 }
 
