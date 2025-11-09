@@ -32,8 +32,8 @@ void Menu::render()
 {
     ClearBackground(ColorFromHex(mBGColourHexCode));
 
-    DrawText("MY PLATFORMER",       260, 180, 40, RAYWHITE);
-    DrawText("Press ENTER to start",260, 260, 30, RAYWHITE);
+    DrawText("Rise Of AI", 260, 180, 40, WHITE);
+    DrawText("ENTER to start",260, 260, 30, WHITE);
 
     if (Scene::getresult() == result_win)
         DrawText("YOU WIN!", 320, 340, 40, GREEN);
