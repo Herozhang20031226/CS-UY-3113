@@ -1,3 +1,13 @@
+/**
+* Author: [Hero Zhang]
+* Assignment: [Zombie farm]
+* Date due: [Dec 5], 2:00pm
+* I pledge that I have completed this assignment without
+* collaborating with anyone else, in conformance with the
+* NYU School of Engineering Policies and Procedures on
+* Academic Misconduct.
+**/
+
 #include "CS3113/ShaderProgram.h"
 #include "CS3113/LevelA.h"
 #include "CS3113/LevelB.h"
