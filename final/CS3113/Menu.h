@@ -1,0 +1,23 @@
+#ifndef MENU_H
+#define MENU_H
+
+#include "Scene.h"
+
+class Menu : public Scene
+{
+private:
+    Texture2D mBackground;
+    bool mBackgroundLoaded;
+    
+public:
+    Menu();
+    Menu(Vector2 origin, const char* bgHexCode);
+    ~Menu();
+    
+    void initialise() override;
+    void update(float deltaTime) override;
+    void render() override;
+    void shutdown() override;
+};
+
+#endif // MENU_H
